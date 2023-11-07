@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "648388636248",
+    "project_id": "logintp-e5269",
+    "storage_bucket": "logintp-e5269.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648388636248:android:9401e5f53b5128850d642d",
+        "android_client_info": {
+          "package_name": "com.example.logintp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX1qU6mXRiPUZnlBp6h3V9HARluJAht-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
