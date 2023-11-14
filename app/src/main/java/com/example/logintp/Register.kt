@@ -1,5 +1,6 @@
 package com.example.logintp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -17,10 +18,13 @@ class Register : AppCompatActivity() {
 
         auth=FirebaseAuth.getInstance()
 
-        //binding.te .setOnClickListener {
+        binding.LoginNow.setOnClickListener {
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
+        }
             binding.RegisterBt.setOnClickListener{
                 val email=binding.Email.text.toString()
-                val password= binding.Password.toString()
+                val password= binding.Password.text.toString()
                 if(email.isEmpty()){
                     Toast.makeText(this,"email is empty",Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
@@ -33,6 +37,9 @@ class Register : AppCompatActivity() {
                     if (task.isSuccessful) {
 
                         Toast.makeText(this,"Compte is created",Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, Login::class.java)
+                        startActivity(intent)
+
                     }else {
                         Toast.makeText(this,"Authentification failed",Toast.LENGTH_SHORT).show()
                     }
