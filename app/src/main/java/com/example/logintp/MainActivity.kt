@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
@@ -27,15 +28,11 @@ class MainActivity : AppCompatActivity() {
         )
 
         initMenu(binding)
+        navigateMenu(navView)
         auth = FirebaseAuth.getInstance()
         user = auth.currentUser!!
 
-        binding.textView.text=user.email
-        binding.button .setOnClickListener {
-            auth.signOut()
-            val intent = Intent(this, Login::class.java)
-            startActivity(intent)
-        }
+
 
     }
 
@@ -50,6 +47,44 @@ class MainActivity : AppCompatActivity() {
 
 //make icon menu visible
         actionToggle.syncState()
+
+
+    }
+
+    private fun navigateMenu(navigationView: NavigationView) {
+        navView.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.user -> {
+
+                  /*  val intent = Intent(this, UsersActivity::class.java)
+                    startActivity(intent)*/
+                    true
+                }
+
+                R.id.profile -> {
+                    Toast.makeText(
+                        baseContext,
+                        "profile",
+                        Toast.LENGTH_SHORT,
+                    ).show()
+                    true
+                }
+
+                R.id.logout -> {
+
+
+                        auth.signOut()
+                        val intent = Intent(this, Login::class.java)
+                        startActivity(intent)
+
+
+                    true
+                }
+                else-> {false}
+            }
+
+
+        }
 
     }
 }
