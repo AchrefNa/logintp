@@ -10,7 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class Register : AppCompatActivity() {
      lateinit var auth: FirebaseAuth;
-    override fun onStart() {
+   /* override fun onStart() {
         super.onStart()
         val currentUser =auth.currentUser
         if(currentUser!=null){
@@ -18,7 +18,7 @@ class Register : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-    }
+    }*/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
